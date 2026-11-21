@@ -85,6 +85,7 @@ class CarInterface(CarInterfaceBase):
 
     if candidate == CAR.HONDA_CRV_5G and 0x12f8bfa7 in fingerprint[CAN.radar]:
       ret.flags |= HondaFlags.HAS_BSM.value
+      ret.deprecated.enableBsm = True
 
     # Detect Bosch cars with new HUD msgs
     if any(0x33DA in f for f in fingerprint.values()):
